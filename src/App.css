@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.main-content-container {
+  font-family:  'Roboto', sans-serif;
+  /* Coral gradient background */
+  
+  background: rgb(94,67,57);
+  background: linear-gradient(364deg, rgba(94,67,57,1) 0%, rgba(255,71,3,1) 41%, rgba(255,127,80,1) 100%);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.project-header {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  margin: 0 1%;
+  margin-top: 1%;
+}
+
+.toppings-container {
+  display: flex;
+  flex: 4 1 auto;
+  background-color: #FFB26B;
+  margin: 0 1%;
+  margin-bottom: 10%;
+  padding: 0 5%;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.topping {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  align-items: center;
+}
+
+.individual-topping-names,
+.individual-topping-numbers {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3%;
+}
+
+.individual-topping,
+.individual-topping-count {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.most-popular-combo::before,
+.most-popular-combo::after {
+  content: '🔥';
+  padding: 0 5px;
+}
+
+
+@media (min-width: 768px) {
+  .toppings-container {
+    flex-direction: row;
+    margin: 0 8%;
+    margin-bottom: 10%;
+    padding: 0 5%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .toppings-container {
+    flex-direction: row;
+    margin: 0 12%;
+    margin-bottom: 10%;
+    padding: 0 5%;
+  }
+}
