@@ -20,18 +20,6 @@ function App() {
     oneToppingArray.push(pizzaToppings[i].toppings.sort((a, b) => a.localeCompare(b)))
   }
 
-  //top 20 ordered pizzas, no ingredient limit
-  const toppingCounts = oneToppingArray.reduce((acc, curr) => {
-    if (acc[curr]) {
-      acc[curr]++
-    } else {
-      acc[curr] = 1
-    }
-    return acc
-  }, {})
-  let sortedIndividualToppings = Object.entries(toppingCounts).sort((a, b) => b[1] - a[1])
-
-
   //top 20 combinations that are ordered the most, more than one ingredient
   const top20Combinations = oneToppingArray.reduce((acc, curr) => {
     if (curr.length > 1) {
@@ -95,13 +83,3 @@ function App() {
 }
 
 export default App
-
-// {
-//   sortedIndividualToppings.map((topping, index) => {
-//     return (
-//       <>
-//         <div key={index} className="topping">{topping[0]}</div>
-//       </>
-//     )
-//   })
-// }
