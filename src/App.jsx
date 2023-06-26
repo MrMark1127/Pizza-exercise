@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, require } from 'react'
 import './App.css'
 import './index.css'
 
@@ -15,7 +15,7 @@ function App() {
   }, [])
 
   const toppings = async () => {
-    const response = await fetch('http://files.olo.com/pizzas.json')
+    const response = await fetch('../Pizza-exercise/orders.json')
     setPizzaToppings(await response.json())
   }
 
@@ -42,7 +42,7 @@ function App() {
     <div className="main-content-container">
     <div className="project-header">
       <h1>Most Popular Pizza Topping Combos</h1>
-      <span style={{fontSize:"0.75rem", paddingTop: "1%"}}>Data Provided by <a href="http://files.olo.com/pizzas.json">Olo</a></span>
+      <span style={{fontSize:"0.75rem", paddingTop: "1%"}}>Data Provided by <a href="https://olo.com">Olo</a></span>
     </div>
       <div className="toppings-container">
         <div className="topping">
