@@ -9,6 +9,9 @@ function App() {
 
   useEffect(() => {
     toppings()
+    setTimeout(() => {
+      document.querySelector('.individual-topping')?.classList.add('most-popular-combo')
+    }, 1000)
   }, [])
 
   const toppings = async () => {
@@ -34,12 +37,6 @@ function App() {
     //Capitalize the first letter of each word
     top20ToppingNames.push(item[0].concat().replace(/\s*,\s*/g, ", ").replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))))
   })
-
-  const adjustTopCombo = () => {
-    for (let i = 0; i < 20; i++) {
-      document.querySelector('.individual-topping').classList.add('most-popular-combo')
-    }
-  }
 
   return (
     <div className="main-content-container">
