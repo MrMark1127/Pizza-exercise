@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import './App.css'
 import './index.css'
 
@@ -9,6 +9,9 @@ function App() {
 
   useEffect(() => {
     toppings()
+    setTimeout(() => {
+      document.querySelector('.individual-topping')?.classList.add('most-popular-combo')
+    }, 1000)
   }, [])
 
   const toppings = async () => {
@@ -35,34 +38,39 @@ function App() {
     top20ToppingNames.push(item[0].concat().replace(/\s*,\s*/g, ", ").replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))))
   })
 
-  const adjustTopCombo = () => {
-    for (let i = 0; i < 20; i++) {
-      document.querySelector('.individual-topping').classList.add('most-popular-combo')
+  const getIndexSetStyle = (index) => {
+    if (index % 2 === 0) {
+      return {backgroundColor: "#FFB26B"}
+    } else {
+      return {backgroundColor: "#ffba7a"}
     }
   }
 
   return (
     <div className="main-content-container">
+
     <div className="project-header">
-      <h1>Most Popular Pizza Topping Combos</h1>
-      <span style={{fontSize:"0.75rem", paddingTop: "1%"}}>Data Provided by <a href="http://files.olo.com/pizzas.json">Olo</a></span>
+      <h1>🍕 Most Loved Pizza Topping Combos 🍕</h1>
+      <span style={{fontSize:"0.75rem", paddingTop: "1%", fontStyle: "italic"}}>Raw data provided by <a href="http://files.olo.com/pizzas.json">Olo</a></span>
     </div>
+
       <div className="toppings-container">
         <div className="topping">
-          <div className="topping-title"><h2>Combinations</h2></div>
+          <div className="topping-title"><h2>Topping Combinations</h2></div>
           <div className="individual-topping-names">
           {
             top20ToppingNames.map((topping, index) => {
               return (
                 <>
-                  <div key={index} className="individual-topping">{topping}</div>
+                  <div key={index} className="individual-topping" style={getIndexSetStyle(index)}>{index+1}. {topping}</div>
+                  {console.log(index+1 + ". " + topping)}
                 </>
               )
             })
           }
           </div>
         </div>
-        {adjustTopCombo()}
+
         <div className="topping">
           <div className="count-title"><h2>Ordered</h2></div>
           <div className="individual-topping-numbers">
@@ -70,13 +78,17 @@ function App() {
               sortedTop20Combinations.slice(0,20).map((item, index) => {
                 return (
                   <>
-                    <div key={index} className="individual-topping-count">{item[1]}</div>
+                    <div key={index} className="individual-topping-count" style={getIndexSetStyle(index)}>{item[1]}</div>
                   </>
                 )
               })
             }
           </div>  
         </div>
+      </div>
+
+      <div className="footer">
+        <span style={{fontSize:"0.75rem", fontStyle: "italic"}}>Created by <a href="https://donahue.solutions">Mark Donahue</a> &copy;2023</span>
       </div>
     </div>
   )
