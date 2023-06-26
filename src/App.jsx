@@ -41,7 +41,7 @@ function App() {
   return (
     <div className="main-content-container">
     <div className="project-header">
-      <h1>Most Popular Pizza Topping Combos</h1>
+      <h1>🍕Most Loved Pizza Topping Combos🍕</h1>
       <span style={{fontSize:"0.75rem", paddingTop: "1%"}}>Data Provided by <a href="https://olo.com">Olo</a></span>
     </div>
       <div className="toppings-container">
@@ -52,7 +52,7 @@ function App() {
             top20ToppingNames.map((topping, index) => {
               return (
                 <>
-                  <div key={index} className="individual-topping">{topping}</div>
+                  <div key={index} className="individual-topping">{index+1}. {topping}</div>
                 </>
               )
             })
