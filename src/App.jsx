@@ -59,7 +59,7 @@ function App() {
           }
           </div>
         </div>
-        {adjustTopCombo()}
+
         <div className="topping">
           <div className="count-title"><h2>Ordered</h2></div>
           <div className="individual-topping-numbers">
